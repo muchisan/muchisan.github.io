@@ -1,0 +1,37 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>木兮侦探社</title>
+	
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<script type="text/javascript" src="assets/md5.js"></script>
+
+</head>
+<body>
+
+	<input type="password" id="inpass" placeholder="请输入访问密码" />
+
+	<script type="text/javascript">
+		function setCookie(name,value) {
+			var Days = 30;
+			var exp = new Date();
+			exp.setTime(exp.getTime() + Days*24*60*60*1000);
+			document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+		}
+		inpass.onkeydown = function (e) {
+			if (e.keyCode == 13) {
+				if (hex_md5(inpass.value) == "2169fbe51cb6eaa62b90f4ffedd2b262") {
+					setCookie("login", "2169fbe51cb6eaa62b90f4ffedd2b262");
+					window.location.href = "/" + inpass.value;
+				}else {
+					inpass.value = "";
+					inpass.setAttribute("placeholder", "密码错误请重新输入");
+				}
+			}
+		}
+	</script>
+	
+</body>
+</html>
